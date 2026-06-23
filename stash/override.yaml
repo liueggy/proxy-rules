@@ -1,0 +1,17 @@
+# Stash Override 模板
+# 用法：Stash → Override → 添加远程覆写
+
+name: Proxy Rules Override
+
+rule-providers:
+  eggy-custom:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/liueggy/proxy-rules/main/stash/rules.yaml
+    path: ./ruleset/eggy-custom.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,eggy-custom,Proxy
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy

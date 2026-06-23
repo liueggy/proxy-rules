@@ -1,0 +1,36 @@
+# Loon 分流规则
+# 用法：[Remote Rule] 引用本文件
+
+# AI
+DOMAIN-SUFFIX,openai.com,AI
+DOMAIN-SUFFIX,chatgpt.com,AI
+DOMAIN-SUFFIX,oaistatic.com,AI
+DOMAIN-SUFFIX,oaiusercontent.com,AI
+DOMAIN-SUFFIX,anthropic.com,AI
+DOMAIN-SUFFIX,claude.ai,AI
+DOMAIN-SUFFIX,perplexity.ai,AI
+DOMAIN-SUFFIX,gemini.google.com,AI
+
+# GitHub
+DOMAIN-SUFFIX,github.com,Proxy
+DOMAIN-SUFFIX,githubusercontent.com,Proxy
+DOMAIN-SUFFIX,githubassets.com,Proxy
+DOMAIN-SUFFIX,github.io,Proxy
+
+# Telegram
+DOMAIN-SUFFIX,t.me,Proxy
+DOMAIN-SUFFIX,telegram.org,Proxy
+IP-CIDR,91.108.4.0/22,Proxy,no-resolve
+IP-CIDR,91.108.8.0/22,Proxy,no-resolve
+IP-CIDR,91.108.12.0/22,Proxy,no-resolve
+IP-CIDR,91.108.16.0/22,Proxy,no-resolve
+IP-CIDR,91.108.56.0/22,Proxy,no-resolve
+IP-CIDR,149.154.160.0/20,Proxy,no-resolve
+
+# Apple，可按需改为 DIRECT
+DOMAIN-SUFFIX,apple.com,Apple
+DOMAIN-SUFFIX,icloud.com,Apple
+DOMAIN-SUFFIX,cdn-apple.com,Apple
+
+GEOIP,CN,DIRECT
+FINAL,Proxy
