@@ -5,6 +5,11 @@
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
 
 [Rule]
+# 自有服务器直连
+IP-CIDR,167.71.221.110/32,DIRECT,no-resolve
+IP-CIDR,168.144.136.246/32,DIRECT,no-resolve
+IP-CIDR,167.71.214.73/32,DIRECT,no-resolve
+
 DOMAIN-SUFFIX,openai.com,AI
 DOMAIN-SUFFIX,chatgpt.com,AI
 DOMAIN-SUFFIX,github.com,Proxy

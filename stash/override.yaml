@@ -12,6 +12,14 @@ rule-providers:
     interval: 86400
 
 rules:
+  # 自有服务器直连
+  # ocean: ROS 中继 + chatgpt2api
+  - IP-CIDR,167.71.221.110/32,DIRECT,no-resolve
+  # Hermes: sub2api + MTProxy + Xray
+  - IP-CIDR,168.144.136.246/32,DIRECT,no-resolve
+  # toy: eggy-ros-relay + chatgpt2api
+  - IP-CIDR,167.71.214.73/32,DIRECT,no-resolve
+
   - RULE-SET,eggy-custom,Proxy
   - GEOIP,CN,DIRECT
   - MATCH,Proxy
