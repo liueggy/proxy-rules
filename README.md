@@ -45,6 +45,41 @@
 - 插件：  
   `https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/plugin.plugin`
 
+## 外部开源规则源
+
+已接入 `blackmatrix7/ios_rule_script` 作为外部规则源，详情见：
+
+```text
+https://raw.githubusercontent.com/liueggy/proxy-rules/main/docs/external-sources.md
+```
+
+### 一键/半自动导入片段
+
+QX `[filter_remote]` 片段：
+
+```text
+https://raw.githubusercontent.com/liueggy/proxy-rules/main/quantumult-x/external-filter-remote.conf
+```
+
+Stash 外部规则 Override：
+
+```text
+https://raw.githubusercontent.com/liueggy/proxy-rules/main/stash/external-providers.yaml
+```
+
+Loon `[Remote Rule]` 片段：
+
+```text
+https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/external-remote-rules.conf
+```
+
+策略组模板：
+
+```text
+https://raw.githubusercontent.com/liueggy/proxy-rules/main/quantumult-x/policy-snippet.conf
+https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/policy-snippet.conf
+```
+
 ## 单独分类规则链接
 
 ### AI
