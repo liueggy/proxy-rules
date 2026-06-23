@@ -5,6 +5,7 @@ on:
     paths:
       - source/rules.yaml
       - scripts/build.py
+      - scripts/check.py
       - .github/workflows/build-rules.yml
   workflow_dispatch:
 
@@ -29,8 +30,11 @@ jobs:
       - name: Build rules
         run: python scripts/build.py
 
+      - name: Check generated rules
+        run: python scripts/check.py
+
       - name: Commit generated files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'build: generate proxy rules'
-          file_pattern: 'quantumult-x/** stash/** loon/**'
+          file_pattern: 'quantumult-x/** stash/** loon/** docs/external-sources.md'

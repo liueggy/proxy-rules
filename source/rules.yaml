@@ -83,6 +83,51 @@ categories:
       - DOMAIN-SUFFIX,icloud.com
       - DOMAIN-SUFFIX,cdn-apple.com
 
+external_sources:
+  blackmatrix7:
+    name: blackmatrix7/ios_rule_script
+    homepage: https://github.com/blackmatrix7/ios_rule_script
+    branch: master
+    base:
+      qx: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX
+      loon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon
+      stash: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash
+    items:
+      advertising-lite:
+        name: AdvertisingLite
+        policy: REJECT
+        description: 轻量广告拦截
+      openai:
+        name: OpenAI
+        policy: AI
+      claude:
+        name: Claude
+        policy: AI
+      gemini:
+        name: Gemini
+        policy: AI
+      github:
+        name: GitHub
+        policy: Proxy
+      telegram:
+        name: Telegram
+        policy: Proxy
+      youtube:
+        name: YouTube
+        policy: Streaming
+      netflix:
+        name: Netflix
+        policy: Streaming
+      disney:
+        name: Disney
+        policy: Streaming
+      spotify:
+        name: Spotify
+        policy: Streaming
+      apple:
+        name: Apple
+        policy: Apple
+
 final:
   qx:
     - GEOIP,CN,DIRECT
