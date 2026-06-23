@@ -2,16 +2,20 @@
 
 个人代理规则仓库，按 Quantumult X、Stash、Loon 分类维护。
 
+> 当前已升级为：维护一份 `source/rules.yaml`，自动生成 QX / Stash / Loon 三端规则。
 > 仓库公开后，可直接使用 GitHub Raw URL 作为远程规则 / 远程资源链接。
 
 ## 目录结构
 
 ```text
 .
-├── quantumult-x/   # Quantumult X 规则、重写、任务
-├── stash/          # Stash / Clash / Mihomo 规则集与覆写
-├── loon/           # Loon 规则、插件
-└── docs/           # 使用说明
+├── source/rules.yaml       # 统一源规则，只需要维护这一份
+├── scripts/build.py        # 生成 QX / Stash / Loon 三端规则
+├── quantumult-x/           # Quantumult X 规则、重写、任务
+├── stash/                  # Stash / Clash / Mihomo 规则集与覆写
+├── loon/                   # Loon 规则、插件
+├── docs/                   # 使用说明
+└── .github/workflows/      # GitHub Actions 自动构建
 ```
 
 ## 快速导入链接
@@ -40,6 +44,36 @@
   `https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/rules.list`
 - 插件：  
   `https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/plugin.plugin`
+
+## 单独分类规则链接
+
+### AI
+
+- QX：`https://raw.githubusercontent.com/liueggy/proxy-rules/main/quantumult-x/rules/ai.list`
+- Stash：`https://raw.githubusercontent.com/liueggy/proxy-rules/main/stash/rules/ai.yaml`
+- Loon：`https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/rules/ai.list`
+
+### 自有服务器直连
+
+- QX：`https://raw.githubusercontent.com/liueggy/proxy-rules/main/quantumult-x/rules/direct-servers.list`
+- Stash：`https://raw.githubusercontent.com/liueggy/proxy-rules/main/stash/rules/direct-servers.yaml`
+- Loon：`https://raw.githubusercontent.com/liueggy/proxy-rules/main/loon/rules/direct-servers.list`
+
+## 维护方式
+
+修改统一源规则：
+
+```bash
+source/rules.yaml
+```
+
+本地生成：
+
+```bash
+python3 scripts/build.py
+```
+
+推送到 GitHub 后，GitHub Actions 也会自动重新生成三端规则。
 
 ## 命名约定
 

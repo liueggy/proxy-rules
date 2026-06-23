@@ -1,0 +1,95 @@
+# 统一源规则
+# 运行 scripts/build.py 后自动生成 Quantumult X / Stash / Loon 三端规则。
+# policy 为最终策略组名：DIRECT / Proxy / AI / Apple / REJECT 等。
+
+meta:
+  owner: liueggy
+  repo: proxy-rules
+  default_policy: Proxy
+  update_interval: 86400
+
+categories:
+  direct-servers:
+    name: 自有服务器直连
+    policy: DIRECT
+    description: ocean / Hermes / toy 三台自有服务器，避免 SSH 和服务访问被代理绕路。
+    rules:
+      - type: IP-CIDR
+        value: 167.71.221.110/32
+        options: no-resolve
+        comment: ocean - ROS 中继 + chatgpt2api
+      - type: IP-CIDR
+        value: 168.144.136.246/32
+        options: no-resolve
+        comment: Hermes - sub2api + MTProxy + Xray
+      - type: IP-CIDR
+        value: 167.71.214.73/32
+        options: no-resolve
+        comment: toy - eggy-ros-relay + chatgpt2api
+
+  ai:
+    name: AI 服务
+    policy: AI
+    rules:
+      - DOMAIN-SUFFIX,openai.com
+      - DOMAIN-SUFFIX,chatgpt.com
+      - DOMAIN-SUFFIX,oaistatic.com
+      - DOMAIN-SUFFIX,oaiusercontent.com
+      - DOMAIN-SUFFIX,anthropic.com
+      - DOMAIN-SUFFIX,claude.ai
+      - DOMAIN-SUFFIX,perplexity.ai
+      - DOMAIN-SUFFIX,gemini.google.com
+
+  github:
+    name: GitHub
+    policy: Proxy
+    rules:
+      - DOMAIN-SUFFIX,github.com
+      - DOMAIN-SUFFIX,githubusercontent.com
+      - DOMAIN-SUFFIX,githubassets.com
+      - DOMAIN-SUFFIX,github.io
+
+  telegram:
+    name: Telegram
+    policy: Proxy
+    rules:
+      - DOMAIN-SUFFIX,t.me
+      - DOMAIN-SUFFIX,telegram.org
+      - type: IP-CIDR
+        value: 91.108.4.0/22
+        options: no-resolve
+      - type: IP-CIDR
+        value: 91.108.8.0/22
+        options: no-resolve
+      - type: IP-CIDR
+        value: 91.108.12.0/22
+        options: no-resolve
+      - type: IP-CIDR
+        value: 91.108.16.0/22
+        options: no-resolve
+      - type: IP-CIDR
+        value: 91.108.56.0/22
+        options: no-resolve
+      - type: IP-CIDR
+        value: 149.154.160.0/20
+        options: no-resolve
+
+  apple:
+    name: Apple 服务
+    policy: Apple
+    description: 可按需要把 policy 从 Apple 改为 DIRECT。
+    rules:
+      - DOMAIN-SUFFIX,apple.com
+      - DOMAIN-SUFFIX,icloud.com
+      - DOMAIN-SUFFIX,cdn-apple.com
+
+final:
+  qx:
+    - GEOIP,CN,DIRECT
+    - FINAL,Proxy
+  loon:
+    - GEOIP,CN,DIRECT
+    - FINAL,Proxy
+  stash:
+    - GEOIP,CN,DIRECT
+    - MATCH,Proxy
